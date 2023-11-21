@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 
-function App() {
+import React from "react";
+import ReactDOM from "react-dom";
+import axios from "axios";
+import Lights from "./components/Lights";
+import Thermostat from "./components/Thermostat";
+import Locks from "./components/Locks";
+
+import "./styles.css"; // Import the styles
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Lights room="Living Room" />
+      <Lights room="Bedroom" />
+      <Lights room="Kitchen" />
+      <Lights room="Bathroom" />
+      <Thermostat room="Thermostat" />
+
+      <Locks door="Front Door" />
     </div>
   );
-}
+};
 
 export default App;
+ReactDOM.render(<App />, document.getElementById("root"));
